@@ -20,6 +20,16 @@ export const GlobalStyle = () => (
         text-decoration: none;
         font-weight: normal;
         color: #222;
+        cursor: pointer;
+      }
+      input {
+        font-family: "Pretendard", sans-serif;
+      }
+
+      @media (max-width: 500px) {
+        * {
+          font-size: 0.9rem;
+        }
       }
     `}
   />
