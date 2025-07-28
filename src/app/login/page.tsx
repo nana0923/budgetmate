@@ -45,6 +45,16 @@ const ErrorMsg = styled.p`
   margin-bottom: 1rem;
 `;
 
+const BottomBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 1rem 0;
+
+  & > a:hover {
+    color: #0070f3;
+  }
+`;
+
 export default function LoginPage() {
   const router = useRouter();
   const supabase = createClient();
@@ -122,11 +132,10 @@ export default function LoginPage() {
         onKeyDown={onKeyDown}
       />
       <Button onClick={handleLogin}>로그인</Button>
-      <h4 style={{ textAlign: "center" }}>
-        <Link href={"/forgot-password"} style={{ color: "#00418b" }}>
-          비밀번호찾기
-        </Link>
-      </h4>
+      <BottomBox>
+        <Link href={"/signup"}>회원가입</Link>
+        <Link href={"/forgot-password"}>비밀번호찾기</Link>
+      </BottomBox>
     </Container>
   );
 }
