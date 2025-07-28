@@ -3,7 +3,6 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { createClient } from "@/lib/supabase";
-import { useRouter } from "next/navigation";
 
 const Container = styled.div`
   max-width: 400px;
@@ -60,7 +59,6 @@ function getSignupErrorMessage(message: string): string {
 }
 
 export default function SignupPage() {
-  const router = useRouter();
   const supabase = createClient();
 
   const [email, setEmail] = useState("");

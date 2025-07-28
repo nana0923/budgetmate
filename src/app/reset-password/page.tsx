@@ -56,7 +56,7 @@ export default function ResetPasswordPage() {
 
   const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { data, error } = await supabase.auth.updateUser({ password });
+    const { error } = await supabase.auth.updateUser({ password });
 
     if (error) {
       setError(error.message);

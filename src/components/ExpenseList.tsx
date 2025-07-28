@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { createClient } from "@/lib/supabase";
 import styled from "@emotion/styled";
+import { Expense } from "@/type";
 
 const ListContainer = styled.div`
   min-width: 600px;
@@ -46,14 +47,6 @@ const Input = styled.input`
   border-radius: 6px;
 `;
 
-type Expense = {
-  id: string;
-  date: string;
-  amount: number;
-  category: string;
-  memo: string;
-};
-
 type ExpenseListProps = {
   userId: string;
   expenses: Expense[];
@@ -61,7 +54,6 @@ type ExpenseListProps = {
 };
 
 export default function ExpenseList({
-  userId,
   expenses,
   onUpdateExpenses,
 }: ExpenseListProps) {

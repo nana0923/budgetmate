@@ -22,7 +22,6 @@
 | 인증/DB    | **Supabase** (Auth + Database) |
 | 스타일     | **Emotion**                    |
 | 차트       | **chart.js**, react-chartjs-2  |
-| 상태 관리  | React 상태 또는 Zustand        |
 
 ## 📂 페이지 구성
 
