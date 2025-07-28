@@ -2,6 +2,7 @@
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import styled from "@emotion/styled";
+import { Expense } from "@/type";
 
 const Contanier = styled.div`
   width: 400px;
@@ -13,15 +14,6 @@ const Contanier = styled.div`
 `;
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
-type Expense = {
-  id: string;
-  user_id: string;
-  amount: number;
-  category: string;
-  memo: string;
-  date: string;
-};
 
 type Props = {
   expenses: Expense[];

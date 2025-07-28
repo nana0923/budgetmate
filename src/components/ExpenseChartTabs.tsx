@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import ExpensePieChart from "@/charts/ExpensePieChart";
 import MonthlyBarChart from "@/charts/MonthlyBarChart";
 import DailyLineChart from "@/charts/DailyLineChart";
+import { Expense } from "@/type";
 
 const Container = styled.div``;
 
@@ -29,12 +30,12 @@ const TabButton = styled.button<{ active: boolean }>`
 `;
 
 type ChartType = "pie" | "bar" | "line";
-type Props = {
-  expenses: any[]; // 또는 더 구체적으로 정의해도 좋음
-  userId: string;
-};
 
-export default function ExpenseChartTabs({ expenses, userId }: Props) {
+export default function ExpenseChartTabs({
+  expenses,
+}: {
+  expenses: Expense[];
+}) {
   const [activeTab, setActiveTab] = useState<ChartType>("pie");
 
   return (

@@ -8,6 +8,7 @@ import ExpenseList from "@/components/ExpenseList";
 
 import ExpenseModalForm from "@/components/ExpenseModalForm";
 import ExpenseChartTabs from "@/components/ExpenseChartTabs";
+import { Expense } from "@/type";
 
 const Container = styled.div`
   max-width: 1200px;
@@ -73,7 +74,7 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
-  const [expenses, setExpenses] = useState<any[]>([]);
+  const [expenses, setExpenses] = useState<Expense[]>([]);
 
   // ✅ 지출 불러오기 함수
   const fetchExpenses = async () => {
@@ -111,7 +112,7 @@ export default function DashboardPage() {
     if (userId) {
       fetchExpenses();
     }
-  }, [userId]);
+  }, [userId, fetchExpenses]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -140,7 +141,7 @@ export default function DashboardPage() {
       )}
 
       <Section>
-        {userId && <ExpenseChartTabs expenses={expenses} userId={userId} />}
+        {userId && <ExpenseChartTabs expenses={expenses} />}
         <div>
           <AddBox>
             <AddButton onClick={() => setShowForm(true)}>지출 추가</AddButton>
